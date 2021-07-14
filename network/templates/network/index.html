@@ -1,0 +1,49 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+<div id = "allpost">
+<h3 style="margin-left: 100px;margin-bottom: 20px;">All Posts</h3>
+{% if user.is_authenticated %}
+<div class="newpost" style="margin-bottom: 20px;border: 1px solid #CED4DA; border-radius: 20px;margin-left: 100px;margin-right: 100px;">
+    <div style="margin: 5px;">
+    <h5>New Post</h5>
+    <div>
+        <form id="add_post">
+            <textarea class="form-control"  value="" id="post_body"></textarea>
+            <input type="hidden" value ="{{ request.user.username }}" id="username">
+            <input type="submit" value="Post" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+</div>
+
+{% endif %}
+<div id = "allposts"></div>
+
+
+</div>
+
+<div id="profile">
+
+<div id="profile-section"></div>
+<hr>
+<div id="user-post"></div>
+
+</div>
+<div id="following-section">
+    <div id="follow-post"></div>
+    
+</div>
+<div id ="paginationallposts"></div>
+<div id="paginationuser-post"></div>
+<div id="paginationfollow-post"></div>
+{% endblock %}
+
+{% block script %}
+
+   
+    
+<script src="{% static 'network/index.js' %}?version=1" ></script>
+
+
+{% endblock %}
